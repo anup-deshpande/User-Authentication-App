@@ -14,9 +14,12 @@ class loginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var errorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        errorView.alpha = 0
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -54,9 +57,11 @@ class loginViewController: UIViewController {
                 print("Inside")
                 switch response.result{
                 case .success(let value):
-                    
+                    self.errorView.alpha = 0
                     // Get token value from response
                     let json = JSON(value)
+                    
+                    if json["status"].stringValue == "200"{
                     let token = json["token"].stringValue
                     
                     // Store token in UserDefaults
@@ -65,11 +70,19 @@ class loginViewController: UIViewController {
                     
                     // Start profile segue
                     self.performSegue(withIdentifier: "loginToProfileSegue", sender: nil)
+                    }
+                    else if json["status"].stringValue == "400"{
+                        self.errorLabel.text = json["message"].stringValue
+                       
+                        self.errorView.alpha = 1
+                    }
                     
                     break
                     
                 case .failure(let error):
                     print(error)
+                    self.errorLabel.text = "Failed to call login API"
+                    self.errorView.alpha = 1
                     break
                 }
                 
