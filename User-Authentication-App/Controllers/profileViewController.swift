@@ -10,14 +10,14 @@ import UIKit
 
 class profileViewController: UIViewController {
 
+    let preferences = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         // Check for the token
-        let preferences = UserDefaults.standard
-        
         if preferences.object(forKey: "Token") == nil {
             // Token not found
             print("Token not found")
@@ -27,19 +27,34 @@ class profileViewController: UIViewController {
     }
     
     @IBAction func showProfileTapped(_ sender: UIButton) {
-        print("Show Profile Button tapped")
+        getUserInformation()
     }
     
     @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
         
         // Delete Token from User Defaults
         let prefereces = UserDefaults.standard
-        prefereces.removeObject(forKey: "Token")
-        prefereces.synchronize()
+        
+        DispatchQueue.main.async {
+            prefereces.set(nil, forKey: "Token")
+            prefereces.synchronize()
+        }
+        
         
         // Send back to login controller
-        self.performSegue(withIdentifier: "profileToLoginSegue", sender: self)
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "profileToLoginSegue", sender: nil)
         
+    }
+    
+    func getUserInformation(){
+        if preferences.object(forKey: "Token") == nil {
+            // Token not found
+            print("Token not found")
+        } else {
+           
+            
+            
+            
+        }
     }
 }

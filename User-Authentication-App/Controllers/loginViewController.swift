@@ -22,8 +22,9 @@ class loginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // Check for the token
         let preferences = UserDefaults.standard
+
         
-        if preferences.object(forKey: "Token") == nil {
+        if preferences.string(forKey: "Token") == nil {
             // Token not found
         } else {
             self.performSegue(withIdentifier: "loginToProfileSegue", sender: self)
