@@ -35,7 +35,7 @@ class signUpViewController: UIViewController {
     
     func signUp(Email email:String, Password password:String, FirstName firstName:String, LastName lastName:String){
         
-        
+        // MARK: SIGNUP API REQUEST 
         
         let parameters: [String:Any] = [
             "firstName":firstName,

@@ -39,6 +39,8 @@ class loginViewController: UIViewController {
     
     func login(Email email:String, Password password:String){
         
+        // MARK: LOGIN API REQUEST 
+        
         let parameters: [String:String] = [
             "email":email,
             "password":password
