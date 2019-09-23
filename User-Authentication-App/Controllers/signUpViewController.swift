@@ -48,7 +48,7 @@ class signUpViewController: UIViewController {
         ]
         
         
-    AF.request("http://ec2-34-207-89-114.compute-1.amazonaws.com/user/signUp",
+    AF.request("http://ec2-3-87-52-94.compute-1.amazonaws.com/user/signUp",
                method: .post,
                parameters: parameters, encoding: JSONEncoding.default)
         .responseJSON { response in

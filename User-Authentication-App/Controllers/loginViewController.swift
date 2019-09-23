@@ -40,18 +40,18 @@ class loginViewController: UIViewController {
     func login(Email email:String, Password password:String){
         
         // MARK: LOGIN API REQUEST 
-        
+
         let parameters: [String:String] = [
             "email":email,
             "password":password
         ]
         
         
-        AF.request("http://ec2-34-207-89-114.compute-1.amazonaws.com/user/login",
+        AF.request("http://ec2-3-87-52-94.compute-1.amazonaws.com/user/login",
                    method: .post,
                    parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
-                
+                print("Inside")
                 switch response.result{
                 case .success(let value):
                     

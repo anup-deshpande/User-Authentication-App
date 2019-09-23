@@ -14,6 +14,7 @@ class profileViewController: UIViewController {
 
     let preferences = UserDefaults.standard
     @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var errorView: UIView!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
@@ -21,10 +22,12 @@ class profileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var userSinceLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profileView.alpha = 0
+        errorView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +60,7 @@ class profileViewController: UIViewController {
         
     }
     
+    
     func getUserInformation(){
         if preferences.object(forKey: "Token") == nil {
             // Token not found
@@ -82,6 +86,8 @@ class profileViewController: UIViewController {
                     case .success(let value):
                         let json = JSON(value)
                         
+                        self.errorView.alpha = 0
+                        
                         // Check if status code is 200
                         if json["status"].stringValue == "200"{
                             var createdAt:String = json["createdAt"].stringValue
@@ -99,12 +105,18 @@ class profileViewController: UIViewController {
                         }
                         else if json["status"].stringValue == "400"{
                             self.profileView.alpha = 0
+                            self.errorLabel.text = json["message"].stringValue
+                            self.errorView.alpha = 1
                             print("Error: " + json["message"].stringValue)
+                            
                         }
                         
                         break
                     case .failure(let error):
                         print(error)
+                        self.profileView.alpha = 0
+                        self.errorLabel.text = "Error in API call"
+                        self.errorView.alpha = 1
                         break
                     }
             }

@@ -360,17 +360,53 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4S-tW-aNd">
+                                <rect key="frame" x="40" y="441" width="334" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-tO-bdv">
+                                        <rect key="frame" x="60" y="9" width="266" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.octagon" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="feE-V6-sFJ">
+                                        <rect key="frame" x="15" y="7.5" width="25" height="23.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="NEd-D2-uYU"/>
+                                            <constraint firstAttribute="height" constant="25" id="erX-Ag-9hT"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.61117632772020725" green="0.092431611898678032" blue="0.08504361904149664" alpha="0.86262103873239437" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yRk-tO-bdv" secondAttribute="trailing" constant="8" id="2ua-L6-rB7"/>
+                                    <constraint firstItem="feE-V6-sFJ" firstAttribute="top" secondItem="n4S-tW-aNd" secondAttribute="top" constant="7" id="4vc-SJ-BqE"/>
+                                    <constraint firstItem="yRk-tO-bdv" firstAttribute="top" secondItem="n4S-tW-aNd" secondAttribute="top" constant="9" id="7jo-2T-DNa"/>
+                                    <constraint firstItem="yRk-tO-bdv" firstAttribute="leading" secondItem="feE-V6-sFJ" secondAttribute="trailing" constant="20" id="MPp-ms-4tz"/>
+                                    <constraint firstAttribute="height" constant="40" id="RZu-dj-0yY"/>
+                                    <constraint firstItem="feE-V6-sFJ" firstAttribute="leading" secondItem="n4S-tW-aNd" secondAttribute="leading" constant="15" id="Tg5-rf-Z2B"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="n4S-tW-aNd" firstAttribute="top" secondItem="Wkr-cR-Ydl" secondAttribute="bottom" constant="20" id="00r-Qp-pRF"/>
                             <constraint firstItem="RKE-xk-678" firstAttribute="top" secondItem="T7V-jd-UPI" secondAttribute="top" constant="96" id="4FM-U8-BQZ"/>
                             <constraint firstItem="e3z-Sa-ETc" firstAttribute="trailing" secondItem="T7V-jd-UPI" secondAttribute="trailing" id="Av4-zD-ept"/>
                             <constraint firstItem="T7V-jd-UPI" firstAttribute="trailing" secondItem="Wkr-cR-Ydl" secondAttribute="trailing" constant="40" id="LJD-d9-Hwo"/>
+                            <constraint firstItem="T7V-jd-UPI" firstAttribute="trailing" secondItem="n4S-tW-aNd" secondAttribute="trailing" constant="40" id="SaN-iK-tJD"/>
                             <constraint firstItem="T7V-jd-UPI" firstAttribute="trailing" secondItem="RKE-xk-678" secondAttribute="trailing" constant="100" id="Uyh-mS-DBS"/>
                             <constraint firstItem="e3z-Sa-ETc" firstAttribute="leading" secondItem="T7V-jd-UPI" secondAttribute="leading" id="VUc-s1-awB"/>
                             <constraint firstItem="RKE-xk-678" firstAttribute="leading" secondItem="T7V-jd-UPI" secondAttribute="leading" constant="100" id="XP7-I4-fGR"/>
                             <constraint firstItem="e3z-Sa-ETc" firstAttribute="top" secondItem="T7V-jd-UPI" secondAttribute="top" constant="5" id="d8L-IP-Icc"/>
                             <constraint firstItem="Wkr-cR-Ydl" firstAttribute="leading" secondItem="T7V-jd-UPI" secondAttribute="leading" constant="40" id="daw-O7-rOR"/>
+                            <constraint firstItem="n4S-tW-aNd" firstAttribute="leading" secondItem="T7V-jd-UPI" secondAttribute="leading" constant="40" id="inL-dn-TwC"/>
                             <constraint firstItem="Wkr-cR-Ydl" firstAttribute="top" secondItem="RKE-xk-678" secondAttribute="bottom" constant="50" id="pgA-gj-mWy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7V-jd-UPI"/>
@@ -379,6 +415,8 @@
                         <outlet property="ageLabel" destination="Xce-1o-FJ8" id="UGx-es-Ief"/>
                         <outlet property="contactLabel" destination="9s4-IK-geU" id="Ppq-3K-1bb"/>
                         <outlet property="emailLabel" destination="alY-pr-8iZ" id="o1q-Sc-XU4"/>
+                        <outlet property="errorLabel" destination="yRk-tO-bdv" id="EPP-JT-WVh"/>
+                        <outlet property="errorView" destination="n4S-tW-aNd" id="o5Y-Cd-OVy"/>
                         <outlet property="genderLabel" destination="mbW-jW-Pt1" id="6Ux-9b-Vka"/>
                         <outlet property="nameLabel" destination="p5W-JD-S9c" id="PvA-xj-qu3"/>
                         <outlet property="profileView" destination="Wkr-cR-Ydl" id="NR0-Eq-qFb"/>
@@ -388,9 +426,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggZ-Lo-kRH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="56"/>
+            <point key="canvasLocation" x="1982.608695652174" y="55.580357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xmark.octagon" catalog="system" width="64" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IZd-JB-Yq8"/>
     </inferredMetricsTieBreakers>
