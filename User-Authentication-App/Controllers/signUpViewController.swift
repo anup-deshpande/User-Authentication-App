@@ -10,45 +10,64 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class signUpViewController: UIViewController {
+class signUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextView: UITextField!
     @IBOutlet weak var firstNameTextView: UITextField!
     @IBOutlet weak var lastNameTextView: UITextField!
     @IBOutlet weak var passwordTextView: UITextField!
     @IBOutlet weak var confirmPasswordTextView: UITextField!
+    @IBOutlet weak var ageTextView: UITextField!
+    @IBOutlet weak var contactTextView: UITextField!
+    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        emailTextView.delegate = self
+        firstNameTextView.delegate = self
+        lastNameTextView.delegate = self
+        passwordTextView.delegate = self
+        confirmPasswordTextView.delegate = self
+        ageTextView.delegate = self
+        contactTextView.delegate = self
+        
     }
     
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
         
         if isEverythingFilled() == true{
             if doPasswordsMatch() == true{
-                signUp(Email: emailTextView.text!, Password: passwordTextView.text!, FirstName: firstNameTextView.text!, LastName: lastNameTextView.text!)
+                
+                var genderArgument: String?
+                if genderSegmentedControl.selectedSegmentIndex == 0 {
+                    genderArgument = "Male"
+                }
+                if genderSegmentedControl.selectedSegmentIndex == 1{
+                    genderArgument = "Female"
+                }
+                
+                signUp(Email: emailTextView.text!, Password: passwordTextView.text!, FirstName: firstNameTextView.text!, LastName: lastNameTextView.text!, Gender: genderArgument!, Contact: contactTextView.text!, Age: ageTextView.text!)
             }
         }
     }
     
-    func signUp(Email email:String, Password password:String, FirstName firstName:String, LastName lastName:String){
+    func signUp(Email email:String, Password password:String, FirstName firstName:String, LastName lastName:String, Gender gender: String, Contact contact:String, Age age:String){
         
         // MARK: SIGNUP API REQUEST 
         
         let parameters: [String:Any] = [
             "firstName":firstName,
             "lastName":lastName,
-            "gender":"Male",
-            "contactNo":1234567890,
-            "age":26,
+            "gender":gender,
+            "contactNo":contact,
+            "age":age,
             "email":email,
             "password":password
         ]
         
         
-    AF.request("http://ec2-3-87-52-94.compute-1.amazonaws.com/user/signUp",
+    AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/user/signUp",
                method: .post,
                parameters: parameters, encoding: JSONEncoding.default)
         .responseJSON { response in
@@ -109,7 +128,23 @@ class signUpViewController: UIViewController {
             flag = false
         }
         
-       
+        if contactTextView.text == ""{
+            flag = false
+        }
+        
+        if ageTextView.text == ""{
+            flag = false
+        }
+        
+       print("Please input all fields")
         return flag;
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "signUpToLoginSegue", sender: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

@@ -79,7 +79,7 @@ class profileViewController: UIViewController {
             ]
 
             // Request UserDetail Api with token in the header
-            AF.request("http://ec2-3-87-52-94.compute-1.amazonaws.com/user/details", headers: headers)
+            AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/user/details", headers: headers)
                 .responseJSON { (response) in
                     
                     switch response.result{

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class loginViewController: UIViewController {
+class loginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -20,6 +20,8 @@ class loginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorView.alpha = 0
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +52,7 @@ class loginViewController: UIViewController {
         ]
         
         
-        AF.request("http://ec2-3-87-52-94.compute-1.amazonaws.com/user/login",
+        AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/user/login",
                    method: .post,
                    parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
@@ -105,6 +107,10 @@ class loginViewController: UIViewController {
         }
         
         return flag;
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
