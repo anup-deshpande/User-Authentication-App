@@ -18,6 +18,7 @@
 		76318D0E2336A60D00FE6C48 /* User_Authentication_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76318D0D2336A60D00FE6C48 /* User_Authentication_AppUITests.swift */; };
 		76318D1C2336A64E00FE6C48 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76318D1B2336A64E00FE6C48 /* signUpViewController.swift */; };
 		76318D1F233836E200FE6C48 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76318D1E233836E200FE6C48 /* profileViewController.swift */; };
+		76318D21233BB82300FE6C48 /* editProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76318D20233BB82300FE6C48 /* editProfileViewController.swift */; };
 		D5759B2B4976A49ABAE0E309 /* Pods_User_Authentication_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E20AF1E80FE56C5E7082723 /* Pods_User_Authentication_App.framework */; };
 		FFAE3216F26A31716701AC19 /* Pods_User_Authentication_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0B077F88105B991C0D14E4 /* Pods_User_Authentication_AppTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		76318D0F2336A60D00FE6C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76318D1B2336A64E00FE6C48 /* signUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		76318D1E233836E200FE6C48 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		76318D20233BB82300FE6C48 /* editProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileViewController.swift; sourceTree = "<group>"; };
 		80783A8774825B8C33673006 /* Pods-User-Authentication-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User-Authentication-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-User-Authentication-AppUITests/Pods-User-Authentication-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E20AF1E80FE56C5E7082723 /* Pods_User_Authentication_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User_Authentication_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A266ECCA6E638AB03A619036 /* Pods_User_Authentication_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User_Authentication_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +170,7 @@
 				76318CEF2336A60C00FE6C48 /* loginViewController.swift */,
 				76318D1B2336A64E00FE6C48 /* signUpViewController.swift */,
 				76318D1E233836E200FE6C48 /* profileViewController.swift */,
+				76318D20233BB82300FE6C48 /* editProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			files = (
 				76318CF02336A60C00FE6C48 /* loginViewController.swift in Sources */,
 				76318CEC2336A60C00FE6C48 /* AppDelegate.swift in Sources */,
+				76318D21233BB82300FE6C48 /* editProfileViewController.swift in Sources */,
 				76318D1C2336A64E00FE6C48 /* signUpViewController.swift in Sources */,
 				76318D1F233836E200FE6C48 /* profileViewController.swift in Sources */,
 				76318CEE2336A60C00FE6C48 /* SceneDelegate.swift in Sources */,

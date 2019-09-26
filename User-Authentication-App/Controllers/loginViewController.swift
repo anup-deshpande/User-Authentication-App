@@ -52,7 +52,7 @@ class loginViewController: UIViewController, UITextFieldDelegate {
         ]
         
         
-        AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/user/login",
+        AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/login",
                    method: .post,
                    parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in

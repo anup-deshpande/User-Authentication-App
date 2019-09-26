@@ -67,7 +67,7 @@ class signUpViewController: UIViewController, UITextFieldDelegate {
         ]
         
         
-    AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/user/signUp",
+    AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/signUp",
                method: .post,
                parameters: parameters, encoding: JSONEncoding.default)
         .responseJSON { response in

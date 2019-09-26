@@ -15,7 +15,6 @@ class profileViewController: UIViewController {
     let preferences = UserDefaults.standard
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var errorView: UIView!
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var contactLabel: UILabel!
@@ -28,6 +27,8 @@ class profileViewController: UIViewController {
         super.viewDidLoad()
         profileView.alpha = 0
         errorView.alpha = 0
+        getUserInformation()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,15 +38,17 @@ class profileViewController: UIViewController {
             print("Token not found")
         } else {
             print("Token found" + preferences.string(forKey: "Token")!)
+            
         }
     }
     
-    @IBAction func showProfileTapped(_ sender: UIButton) {
-        getUserInformation()
-    }
+   
     
     @IBAction func logoutButtonTapped(_ sender: UIBarButtonItem) {
-        
+        logOut()
+    }
+    
+    func logOut(){
         // Delete Token from User Defaults
         let prefereces = UserDefaults.standard
         
@@ -57,9 +60,77 @@ class profileViewController: UIViewController {
         
         // Send back to login controller
         self.performSegue(withIdentifier: "profileToLoginSegue", sender: nil)
-        
     }
     
+    @IBAction func deleteProfileButtonTapped(_ sender: UIButton) {
+        deleteUserProfile()
+    }
+    
+    @IBAction func editProfileButtonTapped(_ sender: UIButton) {
+        
+        // Go to edit profile controller
+        self.performSegue(withIdentifier: "profileToEditProfileSegue", sender: nil)
+    }
+    
+    func deleteUserProfile(){
+        
+        if preferences.object(forKey: "Token") == nil {
+            // Token not found
+            print("Token not found")
+        } else {
+            
+            // MARK: USER DELETE API REQUEST
+            
+            // Get token from preferences
+            let Token = preferences.string(forKey: "Token")!
+            print("Token is :"+Token)
+            // Prepare header
+            let headers: HTTPHeaders = [
+                "token": Token
+//                                "token": "1"
+            ]
+            
+            // Request UserDetail Api with token in the header
+            AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/delete",
+                       method: .delete,
+                       headers: headers)
+                .responseJSON { (response) in
+                    
+                    switch response.result{
+                    case .success(let value):
+                        let json = JSON(value)
+                        
+                        self.errorView.alpha = 0
+                        
+                        // Check if status code is 200
+                        if json["status"].stringValue == "200"{
+                          
+                            print("Delete user successful")
+                            self.logOut()
+                            
+                        }
+                        else if json["status"].stringValue == "400"{
+                            self.profileView.alpha = 0
+                            self.errorLabel.text = json["message"].stringValue
+                            self.errorView.alpha = 1
+                            print("Error: " + json["message"].stringValue)
+                            
+                        }
+                        
+                        break
+                    case .failure(let error):
+                        print(error)
+                       // self.profileView.alpha = 0
+                        self.errorLabel.text = "Error in API call"
+                        self.errorView.alpha = 1
+                        break
+                    }
+            }
+
+        
+        }
+        
+    }
     
     func getUserInformation(){
         if preferences.object(forKey: "Token") == nil {
@@ -71,15 +142,15 @@ class profileViewController: UIViewController {
             
             // Get token from preferences
             let Token = preferences.string(forKey: "Token")!
-            
+            print("Token is :"+Token)
             // Prepare header
             let headers: HTTPHeaders = [
-                "token": Token
-//                "token": "1"
+//                "token": Token
+                "token": "1"
             ]
 
             // Request UserDetail Api with token in the header
-            AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/user/details", headers: headers)
+            AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/details", headers: headers)
                 .responseJSON { (response) in
                     
                     switch response.result{
@@ -103,19 +174,18 @@ class profileViewController: UIViewController {
                             self.profileView.alpha = 1
                             
                         }
-                        else if json["status"].stringValue == "400"{
+                        else{
                             self.profileView.alpha = 0
                             self.errorLabel.text = json["message"].stringValue
                             self.errorView.alpha = 1
-                            print("Error: " + json["message"].stringValue)
-                            
+                             print("Error: " + json["message"].stringValue)
                         }
                         
                         break
                     case .failure(let error):
                         print(error)
                         self.profileView.alpha = 0
-                        self.errorLabel.text = "Error in API call"
+                        self.errorLabel.text = "Error in API call. Check URL"
                         self.errorView.alpha = 1
                         break
                     }
@@ -124,3 +194,4 @@ class profileViewController: UIViewController {
         }
     }
 }
+
