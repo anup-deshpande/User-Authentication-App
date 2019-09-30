@@ -145,54 +145,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Uo-3t-OtK">
-                                <rect key="frame" x="0.0" y="93" width="414" height="719"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="718"/>
+                                <color key="backgroundColor" red="0.95002160881467435" green="0.95002160881467435" blue="0.95002160881467435" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TmT-3k-SCb">
-                                    <size key="itemSize" width="158" height="224"/>
+                                    <size key="itemSize" width="197" height="232"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="productCell" id="Fl5-PU-I13" customClass="ProductsCollectionViewCell" customModule="User_Authentication_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="224"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="232"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="180" height="224"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="197" height="232"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGX-9E-2cO">
-                                                    <rect key="frame" x="16" y="175.5" width="148" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="14" y="184.5" width="143" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rv-vn-XMv">
-                                                    <rect key="frame" x="16" y="192" width="148" height="21"/>
+                                                    <rect key="frame" x="14" y="200" width="167" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oe5-T7-7vT">
-                                                    <rect key="frame" x="16" y="16" width="148" height="151.5"/>
+                                                    <rect key="frame" x="9" y="9" width="179" height="167.5"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HU-aL-1eS">
+                                                    <rect key="frame" x="160" y="184.5" width="26" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <state key="normal" image="cart.badge.plus" catalog="system"/>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottomMargin" secondItem="2rv-vn-XMv" secondAttribute="bottom" constant="3" id="0Dx-Vd-Z0v"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="eGX-9E-2cO" secondAttribute="trailing" constant="8" id="ARg-lj-A30"/>
-                                            <constraint firstItem="oe5-T7-7vT" firstAttribute="leading" secondItem="Fl5-PU-I13" secondAttribute="leadingMargin" constant="8" id="NGe-9L-QZ3"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="eGX-9E-2cO" secondAttribute="trailing" constant="32" id="EWD-HC-dQl"/>
+                                            <constraint firstItem="oe5-T7-7vT" firstAttribute="leading" secondItem="Fl5-PU-I13" secondAttribute="leadingMargin" constant="1" id="NGe-9L-QZ3"/>
                                             <constraint firstItem="eGX-9E-2cO" firstAttribute="top" secondItem="oe5-T7-7vT" secondAttribute="bottom" constant="8" id="Pok-tf-ILq"/>
-                                            <constraint firstItem="oe5-T7-7vT" firstAttribute="top" secondItem="Fl5-PU-I13" secondAttribute="topMargin" constant="8" id="T2x-WJ-WXb"/>
-                                            <constraint firstItem="2rv-vn-XMv" firstAttribute="leading" secondItem="Fl5-PU-I13" secondAttribute="leadingMargin" constant="8" id="V9g-Yr-6Bm"/>
+                                            <constraint firstItem="oe5-T7-7vT" firstAttribute="top" secondItem="Fl5-PU-I13" secondAttribute="topMargin" constant="1" id="T2x-WJ-WXb"/>
+                                            <constraint firstItem="2rv-vn-XMv" firstAttribute="leading" secondItem="Fl5-PU-I13" secondAttribute="leadingMargin" constant="6" id="V9g-Yr-6Bm"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="eGX-9E-2cO" secondAttribute="bottom" constant="20" id="mI6-al-BIX"/>
+                                            <constraint firstItem="8HU-aL-1eS" firstAttribute="top" secondItem="oe5-T7-7vT" secondAttribute="bottom" constant="8" id="n1o-ev-qWi"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="2rv-vn-XMv" secondAttribute="trailing" constant="8" id="nKM-wI-57R"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="oe5-T7-7vT" secondAttribute="trailing" constant="8" id="rI8-lW-ZHp"/>
-                                            <constraint firstItem="eGX-9E-2cO" firstAttribute="leading" secondItem="Fl5-PU-I13" secondAttribute="leadingMargin" constant="8" id="sXL-ov-DMQ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="oe5-T7-7vT" secondAttribute="trailing" constant="1" id="rI8-lW-ZHp"/>
+                                            <constraint firstItem="eGX-9E-2cO" firstAttribute="leading" secondItem="Fl5-PU-I13" secondAttribute="leadingMargin" constant="6" id="sXL-ov-DMQ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="8HU-aL-1eS" secondAttribute="trailing" constant="3" id="upI-s1-Arc"/>
                                         </constraints>
-                                        <size key="customSize" width="180" height="224"/>
+                                        <size key="customSize" width="197" height="232"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="addToCartButton" destination="8HU-aL-1eS" id="C9Y-G1-Et9"/>
                                             <outlet property="productImage" destination="oe5-T7-7vT" id="yyv-ev-xxL"/>
                                             <outlet property="productName" destination="eGX-9E-2cO" id="Xba-fq-knq"/>
                                             <outlet property="productPrice" destination="2rv-vn-XMv" id="ce9-DQ-6tV"/>
@@ -207,7 +221,14 @@
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRQ-LM-lqx">
                                 <rect key="frame" x="0.0" y="49" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Shop" id="94y-tt-IOh"/>
+                                    <navigationItem title="Shop" id="94y-tt-IOh">
+                                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="f7g-AK-5lT">
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <connections>
+                                                <action selector="showCartButtonTapped:" destination="9Jl-hS-e3x" id="xJo-ai-v15"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Wp-3i-Xhw">
@@ -221,9 +242,9 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Uo-3t-OtK" firstAttribute="top" secondItem="gRQ-LM-lqx" secondAttribute="bottom" id="EPU-O8-BQ6"/>
+                            <constraint firstItem="7Uo-3t-OtK" firstAttribute="top" secondItem="gRQ-LM-lqx" secondAttribute="bottom" constant="1" id="EPU-O8-BQ6"/>
                             <constraint firstAttribute="trailing" secondItem="7Uo-3t-OtK" secondAttribute="trailing" id="Kea-Fy-ToF"/>
                             <constraint firstItem="4GR-sl-npE" firstAttribute="bottom" secondItem="7Uo-3t-OtK" secondAttribute="bottom" constant="50" id="eCo-82-6V0"/>
                             <constraint firstItem="gRQ-LM-lqx" firstAttribute="trailing" secondItem="4GR-sl-npE" secondAttribute="trailing" id="kID-ZM-RIH"/>
@@ -821,6 +842,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cart" catalog="system" width="64" height="52"/>
+        <image name="cart.badge.plus" catalog="system" width="64" height="48"/>
         <image name="xmark.octagon" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>

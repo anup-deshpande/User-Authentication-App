@@ -23,7 +23,7 @@ class shoppingProductsViewController: UIViewController, UICollectionViewDataSour
     let preferences = UserDefaults.standard
     
     var products = [product]()
-    let items = ["0","1","2","3","4","5","6","7","8","9","10"]
+    var selectedProducts = [Int : product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +33,6 @@ class shoppingProductsViewController: UIViewController, UICollectionViewDataSour
                    print("Token not found")
                } else {
                     customerID = preferences.string(forKey: "customerId")!
-//                   print("Token found" + preferences.string(forKey: "Token")!)
-//                   print("Customer ID found" + preferences.string(forKey: "customerId")!)
-//
                }
         
         guard let path = Bundle.main.path(forResource: "discount", ofType: "json") else {return}
@@ -64,6 +61,10 @@ class shoppingProductsViewController: UIViewController, UICollectionViewDataSour
     
     @IBAction func payButtonTapped(_ sender: UIButton) {
         fetchClientToken()
+    }
+    
+    @IBAction func showCartButtonTapped(_ sender: UIBarButtonItem) {
+        print(selectedProducts)
     }
     
     func fetchClientToken() {
@@ -159,17 +160,50 @@ class shoppingProductsViewController: UIViewController, UICollectionViewDataSour
         
         cell.productName.text = products[indexPath.row].name!
         cell.productPrice.text = products[indexPath.row].price!
-        print(products[indexPath.row].imageURL! ?? "No Image")
         cell.productImage.image = UIImage(named: products[indexPath.row].imageURL!)
+        cell.addToCartButton.tag = indexPath.row
         
+        cell.addToCartButton.addTarget(self, action: #selector(self.addToCartButtonTapped), for: .touchUpInside)
         
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return products.count
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print(products[indexPath.row].name)
+    }
+    
+    @objc func addToCartButtonTapped(sender: UIButton!){
+        print(sender.tag)
+        if(products[sender.tag].isAdded == true){
+            print("True")
+           sender.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
+           sender.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            products[sender.tag].isAdded = false
+            selectedProducts.removeValue(forKey: sender.tag)
+        }else{
+            print("False")
+            sender.setImage(UIImage(systemName: "cart.badge.minus"), for: .normal)
+            sender.tintColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            products[sender.tag].isAdded = true
+            selectedProducts[sender.tag] = products[sender.tag]
+        }
+            
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let Width = collectionView.bounds.width/2.0
+        let Height = Width
+
+        return CGSize(width: Width, height: Height)
+    }
+
     
     
 

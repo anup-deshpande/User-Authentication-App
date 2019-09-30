@@ -13,6 +13,7 @@ class product{
     var name:String?
     var imageURL:String?
     var price:String?
+    var isAdded:Bool = false
     
     init(json: JSON) {
            self.name = json["name"].stringValue
