@@ -1,20 +1,56 @@
 PODS:
   - Alamofire (5.0.0-rc.2)
+  - Braintree/Card (4.29.0):
+    - Braintree/Core
+  - Braintree/Core (4.29.0)
+  - Braintree/PaymentFlow (4.29.0):
+    - Braintree/Card
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPal (4.29.0):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.29.0):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.29.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.29.0)
+  - Braintree/UnionPay (4.29.0):
+    - Braintree/Card
+    - Braintree/Core
+  - BraintreeDropIn (7.4.0):
+    - BraintreeDropIn/DropIn (= 7.4.0)
+  - BraintreeDropIn/DropIn (7.4.0):
+    - Braintree/Card (~> 4.27)
+    - Braintree/Core (~> 4.27)
+    - Braintree/PaymentFlow (~> 4.27)
+    - Braintree/PayPal (~> 4.27)
+    - Braintree/UnionPay (~> 4.27)
+    - BraintreeDropIn/UIKit
+  - BraintreeDropIn/UIKit (7.4.0)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
+  - BraintreeDropIn
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Braintree
+    - BraintreeDropIn
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
+  Braintree: c8276bc46657026116971442f9de194e028f4fbb
+  BraintreeDropIn: ee413ce4f94b86179e5ff3f98eb847219610bb96
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 621fe72f046797e4cca4243a08abde046408ed0c
+PODFILE CHECKSUM: 80d6c2e7e61ffadeb2f429c2a8572b52b67167d5
 
 COCOAPODS: 1.7.5

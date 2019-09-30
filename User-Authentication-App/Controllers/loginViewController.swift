@@ -52,23 +52,23 @@ class loginViewController: UIViewController, UITextFieldDelegate {
         ]
         
         
-        AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/login",
+        AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/login",
                    method: .post,
                    parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
-                print("Inside")
                 switch response.result{
                 case .success(let value):
                     self.errorView.alpha = 0
                     // Get token value from response
                     let json = JSON(value)
-                    
                     if json["status"].stringValue == "200"{
                     let token = json["token"].stringValue
+                    let customerId = json["customerId"].stringValue
                     
                     // Store token in UserDefaults
                     let preferences = UserDefaults.standard
                     preferences.set(token, forKey: "Token")
+                    preferences.set(customerId, forKey: "customerId")
                     
                     // Start profile segue
                     self.performSegue(withIdentifier: "loginToProfileSegue", sender: nil)

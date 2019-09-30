@@ -93,7 +93,7 @@ class editProfileViewController: UIViewController, UITextFieldDelegate {
             //                "token": "1"
         ]
         
-        AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/update",
+        AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/update",
                    method: .put,
                    parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
@@ -153,7 +153,7 @@ class editProfileViewController: UIViewController, UITextFieldDelegate {
             ]
             
             // Request UserDetail Api with token in the header
-            AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/details", headers: headers)
+            AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/details", headers: headers)
                 .responseJSON { (response) in
                     
                     switch response.result{

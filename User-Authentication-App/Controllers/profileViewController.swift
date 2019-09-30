@@ -72,6 +72,14 @@ class profileViewController: UIViewController {
         self.performSegue(withIdentifier: "profileToEditProfileSegue", sender: nil)
     }
     
+    @IBAction func shopButtonTapped(_ sender: UIButton) {
+        
+        // Go to shopping product controller
+        self.performSegue(withIdentifier: "profileToShoppingSegue", sender: nil)
+        
+        
+    }
+    
     func deleteUserProfile(){
         
         if preferences.object(forKey: "Token") == nil {
@@ -91,7 +99,7 @@ class profileViewController: UIViewController {
             ]
             
             // Request UserDetail Api with token in the header
-            AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/delete",
+            AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/delete",
                        method: .delete,
                        headers: headers)
                 .responseJSON { (response) in
@@ -145,12 +153,12 @@ class profileViewController: UIViewController {
             print("Token is :"+Token)
             // Prepare header
             let headers: HTTPHeaders = [
-//                "token": Token
-                "token": "1"
+                "token": Token
+//                "token": "1"
             ]
 
             // Request UserDetail Api with token in the header
-            AF.request("http://ec2-18-234-241-134.compute-1.amazonaws.com/api/user/details", headers: headers)
+            AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/details", headers: headers)
                 .responseJSON { (response) in
                     
                     switch response.result{
