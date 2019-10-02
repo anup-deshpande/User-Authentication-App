@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="27"/>
+            <point key="canvasLocation" x="3" y="-159"/>
         </scene>
         <!--Shopping Products View Controller-->
         <scene sceneID="Vne-9g-GDA">
@@ -168,7 +168,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rv-vn-XMv">
-                                                    <rect key="frame" x="102" y="208" width="50" height="17"/>
+                                                    <rect key="frame" x="97" y="208" width="50" height="17"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Original">
                                                             <attributes>
@@ -190,8 +190,8 @@
                                                     <state key="normal" image="cart.badge.plus" catalog="system"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discounted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghk-Ft-VP1">
-                                                    <rect key="frame" x="14" y="206" width="83" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="14" y="206" width="78" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -237,6 +237,12 @@
                                 <rect key="frame" x="0.0" y="49" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Shop" id="94y-tt-IOh">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.left" catalog="system" id="616-8d-6TM">
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <connections>
+                                                <segue destination="oAr-Xk-CrG" kind="presentation" modalPresentationStyle="fullScreen" id="ra6-AT-a9g"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="f7g-AK-5lT">
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <connections>
@@ -266,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2z-S2-7NX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="408.69565217391306" y="695.75892857142856"/>
+            <point key="canvasLocation" x="-397" y="543"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="seK-XP-qgc">
@@ -1015,8 +1021,8 @@
         <image name="xmark.octagon" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IZd-JB-Yq8"/>
-        <segue reference="ZLV-Xk-0Cy"/>
+        <segue reference="ra6-AT-a9g"/>
+        <segue reference="71O-WN-oKK"/>
         <segue reference="Hkp-NQ-ob0"/>
     </inferredMetricsTieBreakers>
 </document>

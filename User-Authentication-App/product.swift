@@ -15,6 +15,7 @@ class product{
     var price:String?
     var discount:String?
     var isAdded:Bool = false
+    var quantity:Int = 0
     
     init(json: JSON) {
            self.name = json["name"].stringValue

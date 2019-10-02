@@ -16,7 +16,7 @@
 	{
         "discount": 20,
         "name": "Brach's Jelly Beans",
-        "photo": null,
+        "photo": "null",
         "price": 2.21,
         "region": "grocery"
     },

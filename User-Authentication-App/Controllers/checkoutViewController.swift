@@ -72,8 +72,24 @@ class checkoutViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     @objc func stepperValueChanged(stepper: GMStepper) {
-        print(String(stepper.value) + " " + String(stepper.tag))
+//        print(String(stepper.value) + " " + String(stepper.tag))
+//        print(selectedProducts[stepper.tag].quantity)
+        selectedProducts[stepper.tag].quantity = Int(stepper.value)
+        calculateTotalAmount()
+    }
+    
+    func calculateTotalAmount(){
+        total = 0.00
+
+        for product in selectedProducts {
+            let quantity = product.quantity
+            let price = Double(product.price!)
+            
+            total = total + Double(quantity) * price!
+            total = Double(round(1000*total)/1000)
+        }
         
+        totalAmount.text = "$"+String(total)
     }
     
     //MARK: Braintree API calls

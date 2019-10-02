@@ -78,7 +78,12 @@ class shoppingProductsViewController: UIViewController, UICollectionViewDataSour
         
         cell.productName.text = products[indexPath.row].name!
         //cell.productOriginalPrice.text = "$" + products[indexPath.row].price!
+        print(products[indexPath.row].imageURL!)
+        if products[indexPath.row].imageURL! == "null"{
+               cell.productImage.image = UIImage(named: "no-image")
+        }else{
         cell.productImage.image = UIImage(named: products[indexPath.row].imageURL!)
+        }
         cell.addToCartButton.tag = indexPath.row
         cell.productOriginalPrice.attributedText = attributeString
         cell.productDiscountedPrice.text = "$"+String(discountedPrice)
@@ -105,11 +110,13 @@ class shoppingProductsViewController: UIViewController, UICollectionViewDataSour
            sender.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
            sender.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             products[sender.tag].isAdded = false
+            products[sender.tag].quantity = 0
             selectedProducts.removeValue(forKey: sender.tag)
         }else{
             sender.setImage(UIImage(systemName: "cart.badge.minus"), for: .normal)
             sender.tintColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
             products[sender.tag].isAdded = true
+            products[sender.tag].quantity = 1
             selectedProducts[sender.tag] = products[sender.tag]
         }
             

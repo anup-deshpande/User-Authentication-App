@@ -169,7 +169,7 @@ class profileViewController: UIViewController {
                         
                         // Check if status code is 200
                         if json["status"].stringValue == "200"{
-                            var createdAt:String = json["createdAt"].stringValue
+                            let createdAt:String = json["createdAt"].stringValue
                             
                             // set Values to profile View
                             self.nameLabel.text = json["firstName"].stringValue + " " +  json["lastName"].stringValue
