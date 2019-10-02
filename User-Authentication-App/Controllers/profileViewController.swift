@@ -54,6 +54,7 @@ class profileViewController: UIViewController {
         
         DispatchQueue.main.async {
             prefereces.set(nil, forKey: "Token")
+            prefereces.set(nil, forKey: "customerId")
             prefereces.synchronize()
         }
         
