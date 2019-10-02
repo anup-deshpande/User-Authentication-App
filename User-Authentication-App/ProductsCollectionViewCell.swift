@@ -12,7 +12,8 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productName: UILabel!
     
-    @IBOutlet weak var productPrice: UILabel!
+    @IBOutlet weak var productOriginalPrice: UILabel!
+    @IBOutlet weak var productDiscountedPrice: UILabel!
     
     @IBOutlet weak var productImage: UIImageView!
     

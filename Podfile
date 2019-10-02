@@ -9,6 +9,8 @@ target 'User-Authentication-App' do
   pod 'Alamofire', '~> 5.0.0-rc.2'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'BraintreeDropIn'
+  pod "GMStepper"
+  pod "KRProgressHUD"
 
   target 'User-Authentication-AppTests' do
     inherit! :search_paths

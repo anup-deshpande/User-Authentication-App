@@ -109,34 +109,41 @@ class signUpViewController: UIViewController, UITextFieldDelegate {
         var flag = true
         
         if emailTextView.text == ""{
+         print("Email is blank")
          flag = false
         }
         
         if firstNameTextView.text == ""{
+            print("First Name is blank")
             flag = false
         }
         
         if lastNameTextView.text == ""{
+            print("Last Name is blank")
             flag = false
         }
         
         if passwordTextView.text == ""{
+            print("Password is blank")
             flag = false
         }
         
         if confirmPasswordTextView.text == ""{
+            print("Confirm is blank")
             flag = false
         }
         
         if contactTextView.text == ""{
+            print("Contact is blank")
             flag = false
         }
         
         if ageTextView.text == ""{
+            print("Age is blank")
             flag = false
         }
         
-       print("Please input all fields")
+       print("Flag = "+String(flag))
         return flag;
     }
     

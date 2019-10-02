@@ -21,6 +21,8 @@
 		76318D21233BB82300FE6C48 /* editProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76318D20233BB82300FE6C48 /* editProfileViewController.swift */; };
 		7650660523414EBF002BC2DF /* discount.json in Resources */ = {isa = PBXBuildFile; fileRef = 7650660423414EBF002BC2DF /* discount.json */; };
 		76506609234150EF002BC2DF /* product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76506608234150EF002BC2DF /* product.swift */; };
+		7650660B23428B9E002BC2DF /* checkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650660A23428B9E002BC2DF /* checkoutViewController.swift */; };
+		7650660D23428C55002BC2DF /* checkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650660C23428C55002BC2DF /* checkoutTableViewCell.swift */; };
 		76AAF0272341103500F21231 /* shoppingProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAF0262341103500F21231 /* shoppingProductsViewController.swift */; };
 		76CC8702234124DB00F21019 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC8701234124DB00F21019 /* ProductsCollectionViewCell.swift */; };
 		D5759B2B4976A49ABAE0E309 /* Pods_User_Authentication_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E20AF1E80FE56C5E7082723 /* Pods_User_Authentication_App.framework */; };
@@ -65,6 +67,8 @@
 		76318D20233BB82300FE6C48 /* editProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileViewController.swift; sourceTree = "<group>"; };
 		7650660423414EBF002BC2DF /* discount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = discount.json; sourceTree = "<group>"; };
 		76506608234150EF002BC2DF /* product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product.swift; sourceTree = "<group>"; };
+		7650660A23428B9E002BC2DF /* checkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkoutViewController.swift; sourceTree = "<group>"; };
+		7650660C23428C55002BC2DF /* checkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkoutTableViewCell.swift; sourceTree = "<group>"; };
 		76AAF0262341103500F21231 /* shoppingProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingProductsViewController.swift; sourceTree = "<group>"; };
 		76CC8701234124DB00F21019 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		80783A8774825B8C33673006 /* Pods-User-Authentication-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User-Authentication-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-User-Authentication-AppUITests/Pods-User-Authentication-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				76318D1D2336A6AC00FE6C48 /* Controllers */,
 				76318CF12336A60C00FE6C48 /* Main.storyboard */,
 				76CC8701234124DB00F21019 /* ProductsCollectionViewCell.swift */,
+				7650660C23428C55002BC2DF /* checkoutTableViewCell.swift */,
 				76318CF42336A60D00FE6C48 /* Assets.xcassets */,
 				76318CF62336A60D00FE6C48 /* LaunchScreen.storyboard */,
 				76318CF92336A60D00FE6C48 /* Info.plist */,
@@ -183,6 +188,7 @@
 				76318D1E233836E200FE6C48 /* profileViewController.swift */,
 				76318D20233BB82300FE6C48 /* editProfileViewController.swift */,
 				76AAF0262341103500F21231 /* shoppingProductsViewController.swift */,
+				7650660A23428B9E002BC2DF /* checkoutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -425,9 +431,11 @@
 				76318D21233BB82300FE6C48 /* editProfileViewController.swift in Sources */,
 				76CC8702234124DB00F21019 /* ProductsCollectionViewCell.swift in Sources */,
 				76318D1C2336A64E00FE6C48 /* signUpViewController.swift in Sources */,
+				7650660B23428B9E002BC2DF /* checkoutViewController.swift in Sources */,
 				76506609234150EF002BC2DF /* product.swift in Sources */,
 				76318D1F233836E200FE6C48 /* profileViewController.swift in Sources */,
 				76318CEE2336A60C00FE6C48 /* SceneDelegate.swift in Sources */,
+				7650660D23428C55002BC2DF /* checkoutTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
