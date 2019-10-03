@@ -12,6 +12,7 @@ import BraintreeDropIn
 import Alamofire
 import SwiftyJSON
 import GMStepper
+import KRProgressHUD
 
 class checkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -62,7 +63,13 @@ class checkoutViewController: UIViewController, UITableViewDelegate, UITableView
     
         cell.productName.text = selectedProducts[indexPath.row].name!
         cell.productPrice.text = "$" + selectedProducts[indexPath.row].price!
-        cell.productImage.image = UIImage(named: selectedProducts[indexPath.row].imageURL!)
+        
+        if selectedProducts[indexPath.row].imageURL! == "null"{
+            cell.productImage.image = UIImage(named: "no-image")
+        }else{
+            cell.productImage.image = UIImage(named: selectedProducts[indexPath.row].imageURL!)
+        }
+       // cell.productImage.image = UIImage(named: selectedProducts[indexPath.row].imageURL!)
         cell.ProductQuantity.tag = indexPath.row
         
         cell.ProductQuantity.addTarget(self, action: #selector(self.stepperValueChanged), for: .valueChanged)
@@ -72,9 +79,13 @@ class checkoutViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     @objc func stepperValueChanged(stepper: GMStepper) {
-//        print(String(stepper.value) + " " + String(stepper.tag))
-//        print(selectedProducts[stepper.tag].quantity)
         selectedProducts[stepper.tag].quantity = Int(stepper.value)
+        
+//        if Int(stepper.value) == 0 {
+//            selectedProducts.remove(at: stepper.tag)
+//            checkoutTableView.reloadData()
+//        }
+//        
         calculateTotalAmount()
     }
     
@@ -168,6 +179,15 @@ class checkoutViewController: UIViewController, UITableViewDelegate, UITableView
                 case .success(let value):
                     var json = JSON(value)
                     print(json)
+                    KRProgressHUD.showSuccess(withMessage: "Your order is placed")
+                    
+                    self.selectedProducts.removeAll()
+                    self.checkoutTableView.reloadData()
+                    
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "checkoutToShopSegue", sender: nil)
+                    }
+                    
                     break
                     
                 case .failure(let error):

@@ -869,7 +869,7 @@
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <connections>
                                                 <action selector="goBackButtonTapped:" destination="vb9-zg-K6U" id="g3l-Ff-rY7"/>
-                                                <segue destination="9Jl-hS-e3x" kind="presentation" modalPresentationStyle="fullScreen" id="ZLV-Xk-0Cy"/>
+                                                <segue destination="9Jl-hS-e3x" kind="presentation" identifier="checkoutToShopSegue" modalPresentationStyle="fullScreen" id="ZLV-Xk-0Cy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1022,7 +1022,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ra6-AT-a9g"/>
-        <segue reference="71O-WN-oKK"/>
+        <segue reference="ZLV-Xk-0Cy"/>
         <segue reference="Hkp-NQ-ob0"/>
     </inferredMetricsTieBreakers>
 </document>
