@@ -13,9 +13,14 @@ import Alamofire
 import SwiftyJSON
 import GMStepper
 import KRProgressHUD
+import Stripe
 
-class checkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class checkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,STPAddCardViewControllerDelegate {
+  
+    //MARK: API DECLARATION
+    let checkoutAPI = "http://ec2-3-88-222-179.compute-1.amazonaws.com/api/payments/Stripecheckout"
+    
+    
     var selectedProducts = [product]()
     var total:Double = 0
     var braintreeClient: BTAPIClient?
@@ -63,13 +68,14 @@ class checkoutViewController: UIViewController, UITableViewDelegate, UITableView
     
         cell.productName.text = selectedProducts[indexPath.row].name!
         cell.productPrice.text = "$" + selectedProducts[indexPath.row].price!
+        cell.ProductQuantity.value = Double(selectedProducts[indexPath.row].quantity)
         
         if selectedProducts[indexPath.row].imageURL! == "null"{
             cell.productImage.image = UIImage(named: "no-image")
         }else{
             cell.productImage.image = UIImage(named: selectedProducts[indexPath.row].imageURL!)
         }
-       // cell.productImage.image = UIImage(named: selectedProducts[indexPath.row].imageURL!)
+       
         cell.ProductQuantity.tag = indexPath.row
         
         cell.ProductQuantity.addTarget(self, action: #selector(self.stepperValueChanged), for: .valueChanged)
@@ -81,13 +87,33 @@ class checkoutViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func stepperValueChanged(stepper: GMStepper) {
         selectedProducts[stepper.tag].quantity = Int(stepper.value)
         
-//        if Int(stepper.value) == 0 {
-//            selectedProducts.remove(at: stepper.tag)
-//            checkoutTableView.reloadData()
-//        }
-//        
+        if Int(stepper.value) == 0 {
+            
+            let alert = UIAlertController(title: "Please confirm", message: "Are you sure you want to delete " + selectedProducts[stepper.tag].name!
+                , preferredStyle: .alert)
+            
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default, handler: {
+            (alert) -> Void in
+                self.selectedProducts.remove(at: stepper.tag)
+                self.checkoutTableView.reloadData()
+            })
+            
+            let deleteAction = UIAlertAction(title: "Cancel", style: .destructive,handler: {
+            (alert) -> Void in
+                stepper.value = stepper.value + 1
+            })
+            
+            alert.addAction(confirmAction)
+            alert.addAction(deleteAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+           
+        }
+
         calculateTotalAmount()
     }
+    
     
     func calculateTotalAmount(){
         total = 0.00
@@ -199,4 +225,106 @@ class checkoutViewController: UIViewController, UITableViewDelegate, UITableView
     }
         
 
+    func getEphemeralKey() -> String {
+        
+        
+        let parameters: [String:String] = [
+                "customerId":"\(customerID!)"
+        ]
+        
+        AF.request("http://ec2-3-88-222-179.compute-1.amazonaws.com/api/payments/ephemeralKeys",
+                   method: .post,
+                   parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                switch response.result{
+                case .success(let value):
+                    var json = JSON(value)
+                    print(json)
+                    break
+                    
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+                
+        }
+        
+        return "abcd"
+        
+        
+     }
+     
+     
+     
+    //MARK: Stripe API calls
+    
+    @IBAction func checkoutWithStripebuttonTapped(_ sender: UIButton) {
+        print("Checkout pressed")
+        
+        var eKey = getEphemeralKey()
+        print(eKey)
+        
+        showStripeUI()
+        
+
+    }
+    
+    func showStripeUI(){
+          
+          let addCardViewController = STPAddCardViewController()
+          addCardViewController.delegate = self
+
+          
+          // Present add card view controller
+          let navigationController = UINavigationController(rootViewController: addCardViewController)
+          present(navigationController, animated: true)
+      }
+    
+    
+    func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+          // Dismiss add card view controller
+          dismiss(animated: true)
+    }
+    
+    func addCardViewController(_ addCardViewController: STPAddCardViewController, didCreatePaymentMethod paymentMethod: STPPaymentMethod, completion: @escaping STPErrorBlock) {
+         
+         
+         callCheckoutAPI(nonce: paymentMethod.stripeId)
+     
+         dismiss(animated: true)
+    }
+    
+    func callCheckoutAPI(nonce stripID:String){
+        
+        
+        let parameters: [String:Any] = [
+            "amount":self.total * 100,
+          "stripeId":stripID,
+          "customerId":customerID!
+        ]
+        
+     
+        
+        AF.request(checkoutAPI,
+                   method: .post,
+                   parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                
+                switch response.result{
+                case .success(let value):
+                    let json = JSON(value)
+                    print("API called successfully \(json)")
+                    self.dismiss(animated: true, completion: nil)
+                    break
+                    
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+                
+        }
+        
+        
+    }
+    
 }

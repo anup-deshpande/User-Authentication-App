@@ -969,7 +969,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebS-CT-K8o">
-                                <rect key="frame" x="50" y="797" width="314" height="33"/>
+                                <rect key="frame" x="50" y="762" width="314" height="33"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" red="0.95002160879999997" green="0.95002160879999997" blue="0.95002160879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -983,6 +983,21 @@
                                     <action selector="checkoutButtonTapped:" destination="vb9-zg-K6U" eventType="touchUpInside" id="gGH-Rg-mFH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaG-dR-68s">
+                                <rect key="frame" x="50" y="805" width="314" height="33"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" red="0.95002160879999997" green="0.95002160879999997" blue="0.95002160879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Checkout with Stripe"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="checkoutWithStripebuttonTapped:" destination="vb9-zg-K6U" eventType="touchUpInside" id="yjW-ig-ZfA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -991,13 +1006,16 @@
                             <constraint firstItem="zst-VI-8ej" firstAttribute="trailing" secondItem="pyx-6r-S9t" secondAttribute="trailing" id="G8w-QO-7L3"/>
                             <constraint firstItem="pyx-6r-S9t" firstAttribute="trailing" secondItem="ebS-CT-K8o" secondAttribute="trailing" constant="50" id="KxA-GD-94T"/>
                             <constraint firstItem="zst-VI-8ej" firstAttribute="leading" secondItem="pyx-6r-S9t" secondAttribute="leading" id="Mtp-Hm-E1k"/>
+                            <constraint firstItem="PaG-dR-68s" firstAttribute="top" secondItem="ebS-CT-K8o" secondAttribute="bottom" constant="10" id="OYU-qz-KPM"/>
                             <constraint firstItem="Czo-RQ-GkT" firstAttribute="leading" secondItem="iF8-Ge-2TG" secondAttribute="trailing" constant="8" id="Pik-dd-vFR"/>
                             <constraint firstItem="zst-VI-8ej" firstAttribute="top" secondItem="bSi-ae-ruI" secondAttribute="bottom" constant="2" id="Rhd-p9-snw"/>
                             <constraint firstItem="Czo-RQ-GkT" firstAttribute="top" secondItem="zst-VI-8ej" secondAttribute="bottom" constant="8" id="TVd-rV-R0L"/>
                             <constraint firstItem="iF8-Ge-2TG" firstAttribute="top" secondItem="zst-VI-8ej" secondAttribute="bottom" constant="8" id="Yf8-uM-X3X"/>
-                            <constraint firstItem="ebS-CT-K8o" firstAttribute="top" secondItem="zst-VI-8ej" secondAttribute="bottom" constant="85" id="bVR-En-Z6p"/>
+                            <constraint firstItem="ebS-CT-K8o" firstAttribute="top" secondItem="zst-VI-8ej" secondAttribute="bottom" constant="50" id="bVR-En-Z6p"/>
                             <constraint firstItem="pyx-6r-S9t" firstAttribute="bottom" secondItem="zst-VI-8ej" secondAttribute="bottom" constant="150" id="eVt-5s-2P3"/>
                             <constraint firstItem="bSi-ae-ruI" firstAttribute="top" secondItem="pyx-6r-S9t" secondAttribute="top" constant="5" id="egi-Nb-qdH"/>
+                            <constraint firstItem="pyx-6r-S9t" firstAttribute="trailing" secondItem="PaG-dR-68s" secondAttribute="trailing" constant="50" id="ep2-Gb-0ZI"/>
+                            <constraint firstItem="PaG-dR-68s" firstAttribute="leading" secondItem="pyx-6r-S9t" secondAttribute="leading" constant="50" id="fe9-QL-hJn"/>
                             <constraint firstItem="iF8-Ge-2TG" firstAttribute="leading" secondItem="pyx-6r-S9t" secondAttribute="leading" constant="20" id="oj7-o6-shh"/>
                             <constraint firstItem="bSi-ae-ruI" firstAttribute="leading" secondItem="pyx-6r-S9t" secondAttribute="leading" id="tSq-ga-Nsa"/>
                         </constraints>
@@ -1013,6 +1031,22 @@
             </objects>
             <point key="canvasLocation" x="1124.6376811594205" y="695.75892857142856"/>
         </scene>
+        <!--Stripe Integration View Controller-->
+        <scene sceneID="YZ3-wI-5y0">
+            <objects>
+                <viewController id="mfh-Xy-JsI" customClass="StripeIntegrationViewController" customModule="User_Authentication_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w8P-Xp-jpx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4W5-Qs-bPQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5pc-yM-dU6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TC1-co-Omx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2884" y="696"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
@@ -1023,6 +1057,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="ra6-AT-a9g"/>
         <segue reference="ZLV-Xk-0Cy"/>
-        <segue reference="Hkp-NQ-ob0"/>
+        <segue reference="Rha-Eg-Ebd"/>
     </inferredMetricsTieBreakers>
 </document>

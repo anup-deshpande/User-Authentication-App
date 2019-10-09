@@ -21,6 +21,7 @@ class signUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var contactTextView: UITextField!
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     
+    var signUpAPI = "http://ec2-3-88-222-179.compute-1.amazonaws.com/api/user/signUp"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,7 @@ class signUpViewController: UIViewController, UITextFieldDelegate {
         ]
         
         
-    AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/signUp",
+    AF.request(signUpAPI,
                method: .post,
                parameters: parameters, encoding: JSONEncoding.default)
         .responseJSON { response in

@@ -11,6 +11,7 @@ target 'User-Authentication-App' do
   pod 'BraintreeDropIn'
   pod "GMStepper"
   pod "KRProgressHUD"
+  pod 'Stripe'
 
   target 'User-Authentication-AppTests' do
     inherit! :search_paths

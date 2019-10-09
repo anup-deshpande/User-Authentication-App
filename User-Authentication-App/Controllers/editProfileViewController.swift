@@ -20,6 +20,7 @@ class editProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var contactTextView: UITextField!
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     
+    let userDetailsAPI = "http://ec2-3-88-222-179.compute-1.amazonaws.com/api/user/details"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,7 +154,7 @@ class editProfileViewController: UIViewController, UITextFieldDelegate {
             ]
             
             // Request UserDetail Api with token in the header
-            AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/details", headers: headers)
+            AF.request(userDetailsAPI, headers: headers)
                 .responseJSON { (response) in
                     
                     switch response.result{

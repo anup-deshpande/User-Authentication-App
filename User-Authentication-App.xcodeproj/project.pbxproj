@@ -25,6 +25,7 @@
 		7650660D23428C55002BC2DF /* checkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7650660C23428C55002BC2DF /* checkoutTableViewCell.swift */; };
 		76AAF0272341103500F21231 /* shoppingProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAF0262341103500F21231 /* shoppingProductsViewController.swift */; };
 		76CC8702234124DB00F21019 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CC8701234124DB00F21019 /* ProductsCollectionViewCell.swift */; };
+		76E380A2234D1E9700FF2688 /* StripeIntegrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E380A1234D1E9700FF2688 /* StripeIntegrationViewController.swift */; };
 		D5759B2B4976A49ABAE0E309 /* Pods_User_Authentication_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E20AF1E80FE56C5E7082723 /* Pods_User_Authentication_App.framework */; };
 		FFAE3216F26A31716701AC19 /* Pods_User_Authentication_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0B077F88105B991C0D14E4 /* Pods_User_Authentication_AppTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		7650660C23428C55002BC2DF /* checkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkoutTableViewCell.swift; sourceTree = "<group>"; };
 		76AAF0262341103500F21231 /* shoppingProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoppingProductsViewController.swift; sourceTree = "<group>"; };
 		76CC8701234124DB00F21019 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		76E380A1234D1E9700FF2688 /* StripeIntegrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeIntegrationViewController.swift; sourceTree = "<group>"; };
 		80783A8774825B8C33673006 /* Pods-User-Authentication-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-User-Authentication-AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-User-Authentication-AppUITests/Pods-User-Authentication-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E20AF1E80FE56C5E7082723 /* Pods_User_Authentication_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User_Authentication_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A266ECCA6E638AB03A619036 /* Pods_User_Authentication_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_User_Authentication_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 				76318D20233BB82300FE6C48 /* editProfileViewController.swift */,
 				76AAF0262341103500F21231 /* shoppingProductsViewController.swift */,
 				7650660A23428B9E002BC2DF /* checkoutViewController.swift */,
+				76E380A1234D1E9700FF2688 /* StripeIntegrationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				76318D21233BB82300FE6C48 /* editProfileViewController.swift in Sources */,
 				76CC8702234124DB00F21019 /* ProductsCollectionViewCell.swift in Sources */,
 				76318D1C2336A64E00FE6C48 /* signUpViewController.swift in Sources */,
+				76E380A2234D1E9700FF2688 /* StripeIntegrationViewController.swift in Sources */,
 				7650660B23428B9E002BC2DF /* checkoutViewController.swift in Sources */,
 				76506609234150EF002BC2DF /* product.swift in Sources */,
 				76318D1F233836E200FE6C48 /* profileViewController.swift in Sources */,

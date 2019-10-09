@@ -23,4 +23,6 @@ class product{
            self.discount = json["discount"].stringValue
            self.price = json["price"].stringValue
    }
+    
+    
 }

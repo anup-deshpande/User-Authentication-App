@@ -17,6 +17,8 @@ class loginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var errorView: UIView!
     
+    var loginAPI = "http://ec2-3-88-222-179.compute-1.amazonaws.com/api/user/login"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         errorView.alpha = 0
@@ -52,7 +54,7 @@ class loginViewController: UIViewController, UITextFieldDelegate {
         ]
         
         
-        AF.request("http://ec2-100-27-21-19.compute-1.amazonaws.com/api/user/login",
+        AF.request(loginAPI,
                    method: .post,
                    parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
@@ -64,7 +66,8 @@ class loginViewController: UIViewController, UITextFieldDelegate {
                     if json["status"].stringValue == "200"{
                     let token = json["token"].stringValue
                     let customerId = json["customerId"].stringValue
-                    
+                    print("Customer ID is  : \(customerId)")
+                        
                     // Store token in UserDefaults
                     let preferences = UserDefaults.standard
                     preferences.set(token, forKey: "Token")
